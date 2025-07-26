@@ -6,6 +6,33 @@ from PyQt5.QtCore import Qt
 class WeatherApp(QWidget):
     def __init__(self):
         super().__init__()
+        self.city_label = QLabel("City name: ", self)
+        self.city_input = QLineEdit(self)
+        self.get_weather_button = QPushButton("Get Weather", self)
+        self.temperature_label = QLabel("21°C", self)
+        self.emijo_label = QLabel("☀︎", self)
+        self.description_label = QLabel("Description", self)
+        self.initUI()
+
+    def initUI(self):
+        self.setWindowTitle("Weather App")
+
+        vbox = QVBoxLayout()
+
+        vbox.addWidget(self.city_label)
+        vbox.addWidget(self.city_input)
+        vbox.addWidget(self.get_weather_button)
+        vbox.addWidget(self.temperature_label)
+        vbox.addWidget(self.emijo_label)
+        vbox.addWidget(self.description_label)
+
+        self.setLayout(vbox)
+
+        self.city_label.setAlignment(Qt.AlignCenter)
+        self.city_input.setAlignment(Qt.AlignCenter)
+        self.temperature_label.setAlignment(Qt.AlignCenter)
+        self.emijo_label.setAlignment(Qt.AlignCenter)
+        self.description_label.setAlignment(Qt.AlignCenter)
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
